@@ -16,9 +16,10 @@ router.get("/", async (req, res) => {
         result: data,
       })
     )
-    .catch(() =>
+    .catch((err) =>
       res.status(500).json({
         error: "There was a server side error",
+        errorLog: err,
       })
     );
 });
@@ -33,9 +34,10 @@ router.get("/:id", async (req, res) => {
         result: data,
       })
     )
-    .catch(() =>
+    .catch((err) =>
       res.status(500).json({
         error: "There was a server side error",
+        errorLog: err,
       })
     );
 });
@@ -110,9 +112,10 @@ router.delete("/:id", async (req, res) => {
         result: data,
       })
     )
-    .catch(() =>
+    .catch((err) =>
       res.status(500).json({
         error: "There was a server side error",
+        errorLog: err,
       })
     );
 });
