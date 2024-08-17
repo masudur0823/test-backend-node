@@ -9,16 +9,17 @@ router.get("/", async (req, res) => {
   // console.log(req.query)
   await Task.find()
     .limit(req?.query?.limit ? req?.query?.limit : 0)
-    .then((data) =>
+    .then((data) => {
       res.status(200).json({
         message: "Todos was find successfully",
         totalData: data?.length,
         result: data,
-      })
-    )
+      });
+      console.log(data);
+    })
     .catch((err) =>
       res.status(500).json({
-        error: "There was a server side error",
+        error: "There was fetch a server side error",
         errorLog: err,
       })
     );
